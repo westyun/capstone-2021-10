@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+                Take out
+    </title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/landing.css">
+    <link rel="stylesheet" href="style.css">
+
+    
+
+ </head>
+ <body>
+  <section class="hero is-info is-fullheight">
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="../">
+                        <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenu" class="navbar-menu is-active">
+                    <div class="navbar-end">
+                      <span class="navbar-item">
+                        <a class="button is-white is-outlined is-rounded" href="/">
+                            <span>youtubeLink</span>
+                        </a>
+                    </span>
+                    <span class="navbar-item">
+                        <a class="button is-white is-outlined is-rounded" href="/upload">
+                            <span>audioFile</span>
+                        </a>
+                    </span>
+                        <span class="navbar-item">
+                            <a class="button is-white is-outlined is-rounded" href="#">
+                                <span>community</span>
+                            </a>
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-white is-outlined is-rounded" href="#">
+                                <span>login</span>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-6 is-offset-3">
+        <h1 class="title">
+          Music spleeter: Take Out
+        </h1>
+          <form method="POST" action="/fileupload"
+                enctype="multipart/form-data">
+          <h3 class="subtitle"> 
+            upload your file you want to split
+          </h3>
+          <div class="box">
+            <div class="field is-grouped">
+              <p class="select is-rounded"> 
+                <select name="stems">
+                  <option value="2" >2stem</option>
+                  <option value="4"selected="selected">4stem</option>
+                  <option value="5">5stem</option>
+                </select>
+              </p>
+              <div id="file-js-example" class="file has-name">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="resume">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    No file uploaded
+                  </span>
+                </label>
+              </div>
+              
+              <script>
+                const fileInput = document.querySelector('#file-js-example input[type=file]');
+                fileInput.onchange = () => {
+                  if (fileInput.files.length > 0) {
+                    const fileName = document.querySelector('#file-js-example .file-name');
+                    fileName.textContent = fileInput.files[0].name;
+                  }
+                }
+              </script>
+              
+              <p class="control">
+                <script>
+                    function toLoading() {
+                        document.getElementById("order").className = "button is-info is-loading is-rounded";
+                        document.getElementById("proBar").innerHTML = "<progress class='progress is-medium is-info' max='100'>60%</progress>"
+                    }
+                </script>
+                <button id="order" class="button is-info is-rounded" onclick="toLoading()">
+                    ORDER!
+                </button>
+            </p>
+            </div>
+          </div>
+          </form> 
+          <br>    
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <script async="" type="text/javascript" src="../js/bulma.js"></script>
+</body>
+</html>
+ 
+
+
+
+

@@ -1,54 +1,23 @@
 <!DOCTYPE html>
 <html>
- <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-                Take out
+        Take out
     </title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="../css/landing.css">
-    <style>
-        div.hero-body
-      {
-          background-image: url("1.jpeg");
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-attachment: fixed;
-          background-size: cover;
-          opacity: 0.8;
-      }
-      div.hero-head
-      {
-          background-image: url("1.jpeg");
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-attachment: fixed;
-          background-size: cover;
-          opacity: 0.8;
-      }
-      div.hero-foot
-      {
-          background-image: url("1.jpeg");
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-attachment: fixed;
-          background-size: cover;
-          opacity: 1.0;
-      }
+    <link rel="stylesheet" href="style.css">
 
-      div.box
-      {
-        background-color: white;
-      }
-  </style>
- </head>
- <body>
-  <section class="hero is-fullheight">
+
+</head>
+<body>
+<section class="hero is-info is-fullheight">
     <div class="hero-head">
         <nav class="navbar">
             <div class="container">
@@ -65,30 +34,25 @@
                 <div id="navbarMenu" class="navbar-menu is-active">
                     <div class="navbar-end">
                         <span class="navbar-item">
-                            <a class="button is-white is-outlined is-rounded" href="#">
-                                <span>Home</span>
+                            <a class="button is-white is-outlined is-rounded" href="/">
+                                <span>youtubeLink</span>
+                            </a>
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-white is-outlined is-rounded" href="/upload">
+                                <span>audioFile</span>
                             </a>
                         </span>
                         <span class="navbar-item">
                             <a class="button is-white is-outlined is-rounded" href="#">
-                                <span>Spleeter</span>
+                                <span>community</span>
                             </a>
                         </span>
                         <span class="navbar-item">
                             <a class="button is-white is-outlined is-rounded" href="#">
-                                <span>Score</span>
+                                <span>login</span>
                             </a>
                         </span>
-                        <span class="navbar-item">
-                            <a class="button is-white is-outlined is-rounded" href="#">
-                                <span>Community</span>
-                            </a>
-                        </span>
-                        <span class="navbar-item">
-                          <a class="button is-white is-outlined is-rounded" href="#">
-                              <span>login</span>
-                          </a>
-                      </span>
                     </div>
                 </div>
             </div>
@@ -96,48 +60,55 @@
     </div>
 
     <div class="hero-body">
-      <div class="demo.png" opacity: 0.0;></div>
-            <div class="container has-text-centered">
-                <div class="box" box-background-color="white">
-                    <h1 class="title">
-                      Music spleeter: Take Out
-                    </h1>
-                    <form method="POST" action="/getLink">
+        <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+                <h1 class="title">
+                    Music spleeter: Take Out
+                </h1>
+
+                <form method="POST" action="/getLink">
                     <h3 class="subtitle">
-                      paste youtube link of music you want to split
+                        paste youtube link of music you want to split
                     </h3>
                     <div class="box">
                         <div class="field is-grouped">
                             <p class="control is-expanded">
-                                <input class="input is-rounded" type="text " placeholder="Paste youtube link">
+                                <input class="input is-rounded" type="text " placeholder="Enter your link" name="link">
                             </p>
                             <p class="select is-rounded">
-                                <select>
-                                  <option>Vocal</option>
-                                  <option>Drum</option>
-                                  <option>Bass</option>
-                                  <option>Piano</option>
-                                  <option>Other</option>
+                                <select name="stems">
+                                    <option value="2">2stem</option>
+                                    <option value="4" selected="selected">4stem</option>
+                                    <option value="5">5stem</option>
                                 </select>
                             </p>
-                            <button type="submit">
-                                <a class="button is-info is-rounded">
-                                    Download
-                                </a>
-                            <button class="button is-info is-loading is-rounded">Loading</button>
+                            <p class="control">
+                                <script>
+                                    function toLoading() {
+                                        document.getElementById("order").className = "button is-info is-loading is-rounded";
+                                        document.getElementById("proBar").innerHTML = "<progress class='progress is-medium is-info' max='100'>60%</progress>"
+                                    }
+                                </script>
+                                <button id="order" class="button is-info is-rounded" onclick="toLoading()">
+                                    ORDER!
+                                </button>
                             </p>
                         </div>
-                        <div>
-                          
-                        <progress class="progress is-medium is-info" max="100">60%</progress>
+                        <div id="proBar">
+                            <!-- <progress class="progress is-medium is-info" max="100">60%</progress> -->
                         </div>
                     </div>
-                    </form>
-                    
-                </div>
+                </form>
+
             </div>
         </div>
+    </div>
 
-  </section>
+</section>
 </body>
 </html>
+ 
+
+
+
+

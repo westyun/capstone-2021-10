@@ -1,56 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
                 Take out
     </title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-</head>
-<body>
-<section class="hero is-success is-fullheight">
-  <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
-    <header class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
-          </a>
-          <span class="navbar-burger" data-target="navbarMenuHeroC">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenuHeroC" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item is-active">
-              Home
-            </a>
-            <a class="navbar-item">
-              Examples
-            </a>
-            <a class="navbar-item">
-              Documentation
-            </a>
-            <span class="navbar-item">
-              <a class="button is-success is-inverted">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </header>
-  </div>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/landing.css">
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Hero content: will be in the middle -->
+    
+
+ </head>
+ <body>
+  <section class="hero is-info is-fullheight">
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="../">
+                        <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenu" class="navbar-menu is-active">
+                    <div class="navbar-end">
+                      <span class="navbar-item">
+                        <a class="button is-white is-outlined is-rounded" href="/">
+                            <span>youtubeLink</span>
+                        </a>
+                    </span>
+                    <span class="navbar-item">
+                        <a class="button is-white is-outlined is-rounded" href="/upload">
+                            <span>audioFile</span>
+                        </a>
+                    </span>
+                        <span class="navbar-item">
+                            <a class="button is-white is-outlined is-rounded" href="#">
+                                <span>Documentation</span>
+                            </a>
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-white is-outlined is-rounded" href="#">
+                                <span>View Source</span>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+  
+        
+  {%if stems == "4" %}
   <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Music spleeter: Take Out
+      </p>
+         <div class="print">
+             {% if True %}
+              <img src = "{{thumb}}" , width="400", height="400">
+             {% endif %}
+            </br> 
+             {{fileName}}
+            <h3>Click buttons below to download seperated wav files!</h3>
+            <form method="POST" action="/download">
+              <input type="submit" class="button is-info is-rounded" name="source" value="vocals">
+              <input type="submit" class="button is-info is-rounded" name="source" value="bass">
+              <input type="submit" class="button is-info is-rounded" name="source" value="drums">
+              <input type="submit" class="button is-info is-rounded" name="source" value="other">
+            </form>
+          </div>
+      <br>
+    </div>
+  </div>
+ {% elif stems == "2" %}
+   <div class="hero-body">
     <div class="container has-text-centered">
       <p class="title">
         Music spleeter: Take Out
@@ -62,56 +98,47 @@
              </br>
              {{fileName}}
              <h3>Click buttons below to download seperated wav files!</h3>
-             <div class="dropdown is-active">
-              <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                  <span>Dropdown button</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </div>
-              <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                  <a href="#" class="dropdown-item">
-                    Dropdown item
-                  </a>
-                  <a class="dropdown-item">
-                    Other dropdown item
-                  </a>
-                  <a href="#" class="dropdown-item is-active">
-                    Active dropdown item
-                  </a>
-                  <a href="#" class="dropdown-item">
-                    Other dropdown item
-                  </a>
-                  <hr class="dropdown-divider">
-                  <a href="#" class="dropdown-item">
-                    With a divider
-                  </a>
-                </div>
-              </div>
-            </div>
+             <form method="POST" action="/download">
+              <input type="submit" class="button is-info is-rounded" name="source" value="vocals">
+              <input type="submit" class="button is-info is-rounded" name="source" value="MR">
+            </form>
           </div>
       <br>
     </div>
   </div>
-
-  
-
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs is-boxed is-fullwidth">
-      <div class="container">
-        <ul>
-          <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
-        </ul>
+  {%elif stems == "5" %}
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">
+          Music spleeter: Take Out
+        </p>
+           <div class="print">
+               {% if True %}
+                <img src = "{{thumb}}" , width="400", height="400">
+               {% endif %}
+              </br>
+               {{fileName}}
+              <h3>Click buttons below to download seperated wav files!</h3>
+              <form method="POST" action="/download">
+                <input type="submit" class="button is-info is-rounded" name="source" value="vocals">
+                <input type="submit" class="button is-info is-rounded" name="source" value="bass">
+                <input type="submit" class="button is-info is-rounded" name="source" value="drums">
+                <input type="submit" class="button is-info is-rounded" name="source" value="piano">
+                <input type="submit" class="button is-info is-rounded" name="source" value="other">
+              </form>
+            </div>
+        <br>
       </div>
-    </nav>
-  </div>
-</section>
+    </div>
+{% endif %}
+                 
+          
+  </section>
+  <script async="" type="text/javascript" src="../js/bulma.js"></script>
+</body>
+</html>
+ 
+
+
+
+
